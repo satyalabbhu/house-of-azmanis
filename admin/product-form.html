@@ -2,6 +2,11 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <script>
+    window.addEventListener('error', function(e) {
+      alert('JS Error: ' + e.message + '\nFile: ' + e.filename + '\nLine: ' + e.lineno);
+    });
+  </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Add Product | Admin - THE HOUSE OF AZMANI'S</title>
   <meta name="description" content="Add or edit a product in THE HOUSE OF AZMANI'S store inventory.">
