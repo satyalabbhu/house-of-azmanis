@@ -174,7 +174,7 @@ const DEFAULT_PRODUCTS = [
 
 /* IndexedDB Class to handle base64 image storage (bypassing localStorage limits) */
 class ImageDB {
-  static dbName = 'Azmani's_images';
+  static dbName = 'azmanis_images';
   static storeName = 'images';
   static db = null;
 
@@ -252,7 +252,7 @@ class ImageDB {
 
 /* DataStore Class managing products, categories & stats in localStorage */
 class DataStore {
-  static localKey = 'Azmani's_data';
+  static localKey = 'azmanis_data';
   static data = {
     products: [],
     categories: []

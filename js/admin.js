@@ -7,7 +7,7 @@ let tempFormImages = [];
 
 /* 1. Admin Authentication Manager */
 class AdminAuth {
-  static passwordKey = 'Azmani's_admin_auth';
+  static passwordKey = 'azmanis_admin_auth';
   static defaultPass = 'admin123';
 
   static login(password) {
