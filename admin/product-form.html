@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add Product | Admin - THE HOUSE OF AZMANI'S</title>
+  <meta name="description" content="Add or edit a product in THE HOUSE OF AZMANI'S store inventory.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Great+Vibes&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/admin.css">
+</head>
+<body style="background: #1E1E2D; font-family: 'Cormorant Garamond', serif; margin: 0;">
+  <div class="admin-layout">
+    <aside class="admin-sidebar" id="adminSidebar">
+      <div class="admin-sidebar__logo">
+        <h2 style="font-family: 'Playfair Display', serif; color: #D4A843; font-size: 1.1rem; letter-spacing: 2px; margin: 0;">THE HOUSE OF AZMANI'S</h2>
+        <p style="font-family: 'Great Vibes', cursive; color: #D4A843; font-size: 0.85rem; margin: 0.3rem 0 0;">Admin Panel</p>
+      </div>
+      <nav class="admin-sidebar__nav">
+        <a href="dashboard.html" class="admin-sidebar__link" data-page="dashboard">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+          Dashboard
+        </a>
+        <a href="products.html" class="admin-sidebar__link active" data-page="products">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          Products
+        </a>
+        <a href="categories.html" class="admin-sidebar__link" data-page="categories">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+          Categories
+        </a>
+        <div style="border-top: 1px solid rgba(255,255,255,0.05); margin: 1rem 0;"></div>
+        <a href="../index.html" class="admin-sidebar__link">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          View Store
+        </a>
+        <a href="#" class="admin-sidebar__link" id="logoutBtn">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+          Logout
+        </a>
+      </nav>
+    </aside>
+    <main class="admin-content">
+      <div class="admin-header">
+        <h1 class="admin-title" id="pageTitle">Add New Product</h1>
+        <div style="display: flex; gap: 1rem; align-items: center;">
+          <a href="products.html" style="color: rgba(255,255,255,0.5); text-decoration: none; display: flex; align-items: center; gap: 0.4rem; font-size: 0.9rem; transition: color 0.3s ease;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+            Back to Products
+          </a>
+        </div>
+      </div>
+
+      <!-- Product Form -->
+      <form class="admin-form" id="productForm" style="max-width: 800px;">
+        <!-- Product Name -->
+        <div class="form-group">
+          <label class="form-label" for="productName">Product Name <span style="color: #C62828;">*</span></label>
+          <input type="text" class="form-input" id="productName" placeholder="Enter product name" required>
+        </div>
+
+        <!-- Two-column row: Category + Price -->
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+          <!-- Category -->
+          <div class="form-group">
+            <label class="form-label" for="productCategory">Category <span style="color: #C62828;">*</span></label>
+            <select class="form-select" id="productCategory" required>
+              <option value="">Select a category</option>
+              <option value="Kurtis">Kurtis</option>
+              <option value="Suits">Suits</option>
+              <option value="Sarees">Sarees</option>
+              <option value="Western Wear">Western Wear</option>
+              <option value="Handbags">Handbags</option>
+              <option value="Accessories">Accessories</option>
+            </select>
+          </div>
+
+          <!-- Price -->
+          <div class="form-group">
+            <label class="form-label" for="productPrice">Price <span style="color: #C62828;">*</span></label>
+            <div style="position: relative;">
+              <span style="position: absolute; left: 14px; top: 50%; transform: translateY(-50%); color: rgba(255,255,255,0.4); font-size: 1rem; font-weight: 600;">₹</span>
+              <input type="number" class="form-input" id="productPrice" placeholder="0.00" required min="0" step="0.01" style="padding-left: 35px;">
+            </div>
+          </div>
+        </div>
+
+        <!-- Description -->
+        <div class="form-group">
+          <label class="form-label" for="productDescription">Description</label>
+          <textarea class="form-textarea" id="productDescription" rows="5" placeholder="Describe the product in detail — fabric, fit, occasion, care instructions..."></textarea>
+        </div>
+
+        <!-- Image Upload Section -->
+        <div class="form-group">
+          <label class="form-label">Product Images</label>
+          <div class="image-upload-zone" id="imageUploadZone">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1.5">
+              <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+              <circle cx="8.5" cy="8.5" r="1.5"/>
+              <polyline points="21 15 16 10 5 21"/>
+            </svg>
+            <p style="color: rgba(255,255,255,0.5); margin-top: 1rem; margin-bottom: 0;">Drag &amp; drop images here, or <span style="color: #D4A843; cursor: pointer;">browse</span></p>
+            <p style="color: rgba(255,255,255,0.3); font-size: 0.8rem; margin-top: 0.5rem; margin-bottom: 0;">PNG, JPG up to 5MB each. Max 5 images.</p>
+            <input type="file" id="imageInput" accept="image/*" multiple hidden>
+          </div>
+          <div class="image-preview-grid" id="imagePreviewGrid"></div>
+        </div>
+
+        <!-- Available Sizes -->
+        <div class="form-group">
+          <label class="form-label">Available Sizes</label>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.8rem;" id="sizeOptions">
+            <label style="display: flex; align-items: center; gap: 0.4rem; color: #E0E0E0; cursor: pointer; padding: 0.4rem 0.2rem; transition: color 0.2s ease;">
+              <input type="checkbox" name="sizes" value="XS" style="accent-color: #D4A843; width: 16px; height: 16px;"> XS
+            </label>
+            <label style="display: flex; align-items: center; gap: 0.4rem; color: #E0E0E0; cursor: pointer; padding: 0.4rem 0.2rem; transition: color 0.2s ease;">
+              <input type="checkbox" name="sizes" value="S" style="accent-color: #D4A843; width: 16px; height: 16px;"> S
+            </label>
+            <label style="display: flex; align-items: center; gap: 0.4rem; color: #E0E0E0; cursor: pointer; padding: 0.4rem 0.2rem; transition: color 0.2s ease;">
+              <input type="checkbox" name="sizes" value="M" style="accent-color: #D4A843; width: 16px; height: 16px;" checked> M
+            </label>
+            <label style="display: flex; align-items: center; gap: 0.4rem; color: #E0E0E0; cursor: pointer; padding: 0.4rem 0.2rem; transition: color 0.2s ease;">
+              <input type="checkbox" name="sizes" value="L" style="accent-color: #D4A843; width: 16px; height: 16px;" checked> L
+            </label>
+            <label style="display: flex; align-items: center; gap: 0.4rem; color: #E0E0E0; cursor: pointer; padding: 0.4rem 0.2rem; transition: color 0.2s ease;">
+              <input type="checkbox" name="sizes" value="XL" style="accent-color: #D4A843; width: 16px; height: 16px;"> XL
+            </label>
+            <label style="display: flex; align-items: center; gap: 0.4rem; color: #E0E0E0; cursor: pointer; padding: 0.4rem 0.2rem; transition: color 0.2s ease;">
+              <input type="checkbox" name="sizes" value="XXL" style="accent-color: #D4A843; width: 16px; height: 16px;"> XXL
+            </label>
+            <label style="display: flex; align-items: center; gap: 0.4rem; color: #E0E0E0; cursor: pointer; padding: 0.4rem 0.2rem; transition: color 0.2s ease;">
+              <input type="checkbox" name="sizes" value="Free Size" style="accent-color: #D4A843; width: 16px; height: 16px;"> Free Size
+            </label>
+          </div>
+        </div>
+
+        <!-- Product Status Toggles -->
+        <div class="form-group">
+          <label class="form-label">Product Status</label>
+          <div style="display: flex; flex-direction: column; gap: 1.2rem; padding: 1.2rem; background: rgba(255,255,255,0.02); border-radius: 10px; border: 1px solid rgba(255,255,255,0.04);">
+            <div style="display: flex; align-items: center; justify-content: space-between;">
+              <div>
+                <span style="color: #E0E0E0; font-size: 0.95rem;">Featured Product</span>
+                <p style="color: rgba(255,255,255,0.35); font-size: 0.8rem; margin: 0.2rem 0 0;">Show on homepage featured section</p>
+              </div>
+              <div class="toggle-switch" id="toggleFeatured" data-field="featured">
+                <div class="toggle-switch__slider"></div>
+              </div>
+            </div>
+            <div style="border-top: 1px solid rgba(255,255,255,0.04);"></div>
+            <div style="display: flex; align-items: center; justify-content: space-between;">
+              <div>
+                <span style="color: #E0E0E0; font-size: 0.95rem;">New Arrival</span>
+                <p style="color: rgba(255,255,255,0.35); font-size: 0.8rem; margin: 0.2rem 0 0;">Display "New" badge on the product</p>
+              </div>
+              <div class="toggle-switch" id="toggleNewArrival" data-field="newArrival">
+                <div class="toggle-switch__slider"></div>
+              </div>
+            </div>
+            <div style="border-top: 1px solid rgba(255,255,255,0.04);"></div>
+            <div style="display: flex; align-items: center; justify-content: space-between;">
+              <div>
+                <span style="color: #E0E0E0; font-size: 0.95rem;">Active (Visible on store)</span>
+                <p style="color: rgba(255,255,255,0.35); font-size: 0.8rem; margin: 0.2rem 0 0;">Customers can see and purchase this product</p>
+              </div>
+              <div class="toggle-switch active" id="toggleActive" data-field="active">
+                <div class="toggle-switch__slider"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Form Actions -->
+        <div style="display: flex; gap: 1rem; margin-top: 2rem; justify-content: flex-end; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.05);">
+          <a href="products.html" class="admin-btn admin-btn-outline">Cancel</a>
+          <button type="submit" class="admin-btn admin-btn-primary" id="saveProductBtn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 0.4rem;"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
+            Save Product
+          </button>
+        </div>
+      </form>
+    </main>
+  </div>
+
+  <script src="../js/data.js"></script>
+  <script src="../js/admin.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', async function() {
+      await DataStore.init();
+      AdminAuth.checkAuth();
+      renderAdminSidebar();
+      initProductForm();
+    });
+  </script>
+</body>
+</html>
