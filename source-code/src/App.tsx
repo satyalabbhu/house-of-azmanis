@@ -306,7 +306,7 @@ Could you please confirm if this beautiful piece is currently available for orde
       <div className="flex flex-col lg:flex-row min-h-screen">
         
         {/* DESKTOP SIDEBAR - Left side panel matching Editorial theme */}
-        <aside className="hidden lg:flex w-80 shrink-0 border-r border-[#EFECE8] bg-[#F8F5F2] flex-col justify-between p-8 min-h-screen sticky top-0 h-screen overflow-y-auto">
+        <aside className="hidden lg:flex w-80 shrink-0 border-r border-[#EFECE8] bg-[#F8F5F2] flex-col gap-12 p-8 min-h-screen">
           
           <div className="space-y-12">
             {/* Store Branding Header */}
