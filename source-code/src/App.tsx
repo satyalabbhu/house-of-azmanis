@@ -766,7 +766,7 @@ Could you please confirm if this beautiful piece is currently available for orde
               {/* Action and controls block */}
               <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 w-full lg:w-auto">
                 {/* Fast presets / Category pill bar */}
-                <div className="flex gap-2 overflow-x-auto max-w-full pb-1 sm:pb-0 scrollbar-thin">
+                <div className="flex flex-wrap gap-2 max-w-full pb-1 sm:pb-0">
                   <button
                     onClick={() => setSelectedCategory('')}
                     className={`px-3.5 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap transition-all cursor-pointer ${
@@ -1172,41 +1172,19 @@ Could you please confirm if this beautiful piece is currently available for orde
                       Clear History
                     </button>
 
-                    <div className="flex items-center gap-1">
-                      <button
-                        onClick={() => {
-                          const container = document.getElementById('recently-viewed-carousel');
-                          if (container) container.scrollBy({ left: -220, behavior: 'smooth' });
-                        }}
-                        className="p-1.5 border border-gold-200 hover:bg-gold-50 text-gold-800 rounded-lg transition-all cursor-pointer shadow-xs"
-                        aria-label="Scroll left"
-                      >
-                        <ChevronLeft size={14} />
-                      </button>
-                      <button
-                        onClick={() => {
-                          const container = document.getElementById('recently-viewed-carousel');
-                          if (container) container.scrollBy({ left: 220, behavior: 'smooth' });
-                        }}
-                        className="p-1.5 border border-gold-200 hover:bg-gold-50 text-gold-800 rounded-lg transition-all cursor-pointer shadow-xs"
-                        aria-label="Scroll right"
-                      >
-                        <ChevronRight size={14} />
-                      </button>
-                    </div>
                   </div>
                 </div>
 
-                {/* Horizontal Scroll container / Carousel */}
+                {/* Horizontal container - Now wraps instead of sliding */}
                 <div
                   id="recently-viewed-carousel"
-                  className="flex gap-4 overflow-x-auto pb-4 scrollbar-thin scroll-smooth snap-x snap-mandatory"
+                  className="flex flex-wrap gap-4 pb-4"
                 >
                   {recentlyViewedProducts.map((prod) => (
                     <div
                       key={`recent-${prod.id}`}
                       onClick={() => setSelectedProduct(prod)}
-                      className="min-w-[170px] w-[170px] sm:min-w-[200px] sm:w-[200px] bg-white border border-[#EFECE8] rounded-xl overflow-hidden cursor-pointer shadow-xs hover:shadow-md hover:border-gold-300 transition-all duration-300 group flex flex-col snap-start relative"
+                      className="w-[140px] sm:w-[170px] bg-white border border-[#EFECE8] rounded-xl overflow-hidden cursor-pointer shadow-xs hover:shadow-md hover:border-gold-300 transition-all duration-300 group flex flex-col relative"
                     >
                       {/* Close button to remove from history */}
                       <button
