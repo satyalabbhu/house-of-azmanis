@@ -302,11 +302,11 @@ Could you please confirm if this beautiful piece is currently available for orde
         )}
       </AnimatePresence>
 
-      {/* Main Responsive Container */}
-      <div className="flex flex-col lg:flex-row min-h-screen">
+      {/* Main Responsive Container - Optimized for spacious full screen layout */}
+      <div className="flex flex-col min-h-screen">
         
-        {/* DESKTOP SIDEBAR - Left side panel matching Editorial theme */}
-        <aside className="hidden lg:flex w-80 shrink-0 border-r border-[#EFECE8] bg-[#F8F5F2] flex-col gap-12 p-8 min-h-screen">
+        {/* DESKTOP SIDEBAR - Hidden in favor of responsive sliding drawer menu to maximize space and prevent blank left areas on laptops */}
+        <aside className="hidden">
           
           <div className="space-y-12">
             {/* Store Branding Header */}
@@ -442,10 +442,10 @@ Could you please confirm if this beautiful piece is currently available for orde
           </div>
         </aside>
 
-        {/* MOBILE SIDEBAR MODAL PANEL */}
+        {/* RESPONSIVE SLIDING MENU PANEL - Beautifully accessible on all screen widths */}
         <AnimatePresence>
           {showMobileSidebar && (
-            <div className="fixed inset-0 z-40 lg:hidden flex">
+            <div className="fixed inset-0 z-50 flex">
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
@@ -570,19 +570,32 @@ Could you please confirm if this beautiful piece is currently available for orde
         {/* MAIN BODY AREA */}
         <main className="flex-1 flex flex-col min-w-0">
           
-          {/* HEADER BAR */}
-          <header className="h-20 border-b border-[#EFECE8] flex items-center justify-between px-6 md:px-10 bg-white sticky top-0 z-30 shadow-xs">
+          {/* HEADER BAR - Fully optimized for elegant full screen laptop/desktop and mobile displays */}
+          <header className="h-20 border-b border-[#EFECE8] flex items-center justify-between px-4 md:px-10 bg-white sticky top-0 z-30 shadow-xs">
             
-            {/* Mobile Header Menu Button */}
-            <div className="flex items-center gap-3 lg:hidden">
+            {/* Luxury Sliding Menu Trigger & Brand Identity (Visible on all screen sizes) */}
+            <div className="flex items-center gap-3 md:gap-4">
               <button
                 onClick={() => setShowMobileSidebar(true)}
-                className="p-1.5 hover:bg-gold-50 rounded-lg text-gold-900 cursor-pointer"
+                className="p-2.5 hover:bg-gold-50 border border-gold-200/50 rounded-xl text-gold-900 transition-all cursor-pointer flex items-center gap-2 group"
+                title="Open Navigation Menu"
               >
-                <Menu size={24} />
+                <Menu size={20} className="transition-transform duration-300 group-hover:scale-110 text-gold-900" />
+                <span className="text-[10px] uppercase tracking-wider font-bold text-gold-800 hidden sm:inline-block">
+                  Menu & Info
+                </span>
               </button>
-              <span className="font-display text-sm tracking-widest text-[#2C2115] uppercase font-bold">
-                Azmanis
+              <span 
+                className="font-display text-base tracking-[0.15em] text-[#2C2115] uppercase font-medium cursor-pointer hover:text-gold-700 transition-colors hidden md:inline-block" 
+                onClick={() => { setSelectedCategory(''); setSearchQuery(''); setSelectedSizeFilter(''); }}
+              >
+                The House of Azmanis
+              </span>
+              <span 
+                className="font-display text-sm tracking-[0.15em] text-[#2C2115] uppercase font-bold cursor-pointer md:hidden" 
+                onClick={() => { setSelectedCategory(''); setSearchQuery(''); setSelectedSizeFilter(''); }}
+              >
+                The House of Azmanis
               </span>
             </div>
 
@@ -766,7 +779,7 @@ Could you please confirm if this beautiful piece is currently available for orde
               {/* Action and controls block */}
               <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 w-full lg:w-auto">
                 {/* Fast presets / Category pill bar */}
-                <div className="flex flex-wrap gap-2 max-w-full pb-1 sm:pb-0">
+                <div className="flex gap-2 overflow-x-auto max-w-full pb-1 sm:pb-0 scrollbar-thin">
                   <button
                     onClick={() => setSelectedCategory('')}
                     className={`px-3.5 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap transition-all cursor-pointer ${
@@ -847,8 +860,8 @@ Could you please confirm if this beautiful piece is currently available for orde
                 </div>
               )
             ) : (
-              /* PRODUCTS GRID */
-              <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6 md:gap-8">
+              /* PRODUCTS GRID - Responsive multi-column layout for desktop optimization */
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5 gap-6 md:gap-8">
                 {sortedProducts.map((prod) => (
                   <div
                     key={prod.id}
@@ -1172,19 +1185,41 @@ Could you please confirm if this beautiful piece is currently available for orde
                       Clear History
                     </button>
 
+                    <div className="flex items-center gap-1">
+                      <button
+                        onClick={() => {
+                          const container = document.getElementById('recently-viewed-carousel');
+                          if (container) container.scrollBy({ left: -220, behavior: 'smooth' });
+                        }}
+                        className="p-1.5 border border-gold-200 hover:bg-gold-50 text-gold-800 rounded-lg transition-all cursor-pointer shadow-xs"
+                        aria-label="Scroll left"
+                      >
+                        <ChevronLeft size={14} />
+                      </button>
+                      <button
+                        onClick={() => {
+                          const container = document.getElementById('recently-viewed-carousel');
+                          if (container) container.scrollBy({ left: 220, behavior: 'smooth' });
+                        }}
+                        className="p-1.5 border border-gold-200 hover:bg-gold-50 text-gold-800 rounded-lg transition-all cursor-pointer shadow-xs"
+                        aria-label="Scroll right"
+                      >
+                        <ChevronRight size={14} />
+                      </button>
+                    </div>
                   </div>
                 </div>
 
-                {/* Horizontal container - Now wraps instead of sliding */}
+                {/* Horizontal Scroll container / Carousel */}
                 <div
                   id="recently-viewed-carousel"
-                  className="flex flex-wrap gap-4 pb-4"
+                  className="flex gap-4 overflow-x-auto pb-4 scrollbar-thin scroll-smooth snap-x snap-mandatory"
                 >
                   {recentlyViewedProducts.map((prod) => (
                     <div
                       key={`recent-${prod.id}`}
                       onClick={() => setSelectedProduct(prod)}
-                      className="w-[140px] sm:w-[170px] bg-white border border-[#EFECE8] rounded-xl overflow-hidden cursor-pointer shadow-xs hover:shadow-md hover:border-gold-300 transition-all duration-300 group flex flex-col relative"
+                      className="min-w-[170px] w-[170px] sm:min-w-[200px] sm:w-[200px] bg-white border border-[#EFECE8] rounded-xl overflow-hidden cursor-pointer shadow-xs hover:shadow-md hover:border-gold-300 transition-all duration-300 group flex flex-col snap-start relative"
                     >
                       {/* Close button to remove from history */}
                       <button
