@@ -412,6 +412,10 @@ Could you please confirm if this beautiful piece is currently available for orde
               The House of Azmanis is a premium destination for women seeking elegant apparel, stylish accessories, and timeless fashion curated with care.
             </p>
             
+            <div className="flex items-center justify-center w-6 h-6 rounded bg-gold-100 text-gold-800 border border-gold-200 font-serif italic text-[10px] shadow-sm">
+              A
+            </div>
+            
             <div className="flex gap-3 justify-start">
               <button
                 onClick={() => setShowInstagramQR(true)}
@@ -555,6 +559,9 @@ Could you please confirm if this beautiful piece is currently available for orde
                 </div>
 
                 <div className="pt-6 border-t border-gold-200/40 space-y-4">
+                  <div className="flex items-center justify-center w-6 h-6 rounded bg-gold-100 text-gold-800 border border-gold-200 font-serif italic text-[10px] shadow-sm">
+                    A
+                  </div>
                   <div className="flex gap-4 justify-start">
                     <button onClick={() => { setShowInstagramQR(true); setShowMobileSidebar(false); }} className="text-gold-800"><Instagram size={16} /></button>
                     <a href="https://facebook.com" className="text-gold-800"><Facebook size={16} /></a>
