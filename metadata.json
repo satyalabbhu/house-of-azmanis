@@ -1,0 +1,6 @@
+{
+  "name": "The House of Azmanis",
+  "description": "An elegant, premium catalog website for The House of Azmanis, displaying luxury women's apparel, kurtis, suits, sarees, western wear, handbags, and accessories. Features instant WhatsApp enquiries and a complete merchant product manager.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
